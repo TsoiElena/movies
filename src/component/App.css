@@ -1,0 +1,11 @@
+.page {
+    margin: 0 auto;
+    width: 1014px;
+    background-color: #FFFF;
+    padding: 21px 40px 17px;
+}
+
+.page_pagination{
+    display: flex;
+    justify-content: center;
+}

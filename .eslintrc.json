@@ -9,18 +9,22 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/warnings",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 12,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react", "prettier", "import"],
+  "plugins": ["react", "prettier", "import", "@typescript-eslint"],
   "rules": {
-    "indent": ["error", 2],
+    "indent": "off",
     "prettier/prettier": "error",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
