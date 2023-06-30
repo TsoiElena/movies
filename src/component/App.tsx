@@ -1,39 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { Pagination } from 'antd';
 
 import { getMovies } from '../service';
 
 import './App.css';
-import CardList from './CardList/CardList';
+import Page from './page/page';
+import ErrorNotice from './notice/ErrorNotice';
+import Preload from './preload/preload';
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getMovies('return', page)
       .then((res) => Object.assign(res))
       .then((res) => {
         setMovies(res.results);
         setTotalPage(res.total_pages);
-        console.log(movies);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setError(true);
       });
     scroll(0, 0);
   }, [page]);
+
+  const hasData = !(isLoading || error);
+
+  const errorMessage = error ? <ErrorNotice /> : null;
+  const preload = isLoading ? <Preload /> : null;
+  const content =
+    !isLoading && hasData ? <Page movies={movies} page={page} setPage={setPage} totalPage={totalPage} /> : null;
+
   return (
     <div className="page">
-      <CardList movies={movies} />
-      <div className="page_pagination">
-        <Pagination
-          current={page}
-          onChange={(p) => setPage(p)}
-          total={totalPage}
-          showSizeChanger={false}
-          className="center"
-          defaultPageSize={1}
-        />
-      </div>
+      {preload}
+      {errorMessage}
+      {content}
     </div>
   );
 };

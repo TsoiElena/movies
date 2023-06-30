@@ -18,7 +18,6 @@ const cutDescription = (text: string, maxLength: number) => {
 };
 
 const Card: React.FC<CardProps> = ({ card }) => {
-  console.log(card);
   const photoPath = card.backdrop_path
     ? imgBase + card.backdrop_path
     : 'https://t-bike.ru/images/products/no-image.jpg';

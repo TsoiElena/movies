@@ -12,18 +12,18 @@ const options = {
 };
 
 const getResourse = async (url: string) => {
-  let result = await fetch(url, options);
-
-  if (!result.ok) throw new Error(`Oops! error ${result.status}`);
-
-  result = await result.json();
-
+  const result = await fetch(url, options);
   return result;
 };
 
 export const getMovies = async (term: string, page: number) => {
-  const result = await getResourse(
+  let result = await getResourse(
     `${baseApi}search/movie?query=${term}&include_adult=false&language=en-US&page=${page}`
   );
+
+  if (!result.ok) return Promise.reject(result.status);
+
+  result = await result.json();
+
   return result;
 };
