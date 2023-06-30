@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { getMovies } from '../service';
 
 import './App.css';
+import Search from './search/Search';
 import Page from './page/page';
 import ErrorNotice from './notice/ErrorNotice';
 import Preload from './preload/preload';
@@ -13,10 +14,11 @@ const App: React.FC = () => {
   const [totalPage, setTotalPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [term, setTerm] = useState('');
 
-  useEffect(() => {
+  const getdata = () => {
     setIsLoading(true);
-    getMovies('return', page)
+    getMovies(term, page)
       .then((res) => Object.assign(res))
       .then((res) => {
         setMovies(res.results);
@@ -28,7 +30,16 @@ const App: React.FC = () => {
         setError(true);
       });
     scroll(0, 0);
+  };
+
+  useEffect(() => {
+    getdata();
   }, [page]);
+
+  useEffect(() => {
+    setPage(1);
+    getdata();
+  }, [term]);
 
   const hasData = !(isLoading || error);
 
@@ -39,6 +50,7 @@ const App: React.FC = () => {
 
   return (
     <div className="page">
+      <Search term={term} setTerm={setTerm} />
       {preload}
       {errorMessage}
       {content}
