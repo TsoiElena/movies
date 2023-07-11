@@ -106,3 +106,61 @@
 .green {
   border-color: #66E900;
 }
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 425px) {
+  .card {
+    grid-template-columns: 73px 1fr 40px;
+    grid-template-areas: "photo title voite"
+                        "photo date voite"
+"photo genre genre"
+"desc desc desc"
+" . rated rated";
+    padding: 6px 10px;
+    height: 245px;
+  }
+  .card_photo {
+    width: 60px;
+    height: 91px;
+  }
+
+  .card_title {
+    margin-top: 0;
+    margin-left: 0;
+    min-width: 120px;
+  }
+
+  .card_date {
+    margin-left: 0;
+  }
+
+  .card_genre {
+    margin-left: 0;
+  }
+
+  .card_description {
+    margin-left: 0;
+  }
+
+  .card-rated {
+    margin-left: 0;
+    margin-bottom: 5px;
+    justify-self: end;
+  }
+
+  .card-rated svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .card-voite {
+    margin-top: 0;
+    margin-right: 0;
+  }
+}

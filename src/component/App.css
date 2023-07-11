@@ -9,3 +9,10 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .page {
+        width: 100%;
+        padding: 19px 16px 20px;
+    }
+}

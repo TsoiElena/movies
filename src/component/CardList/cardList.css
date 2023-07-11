@@ -5,3 +5,10 @@
     margin-bottom: 36px;
     justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+    .page_list {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
