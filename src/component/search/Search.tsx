@@ -14,7 +14,6 @@ const Search: React.FC<SearchProps> = ({ term, setTerm }) => {
 
   const sendQuery = (q: string) => {
     setTerm(q);
-    setQuery('');
   };
 
   const delayedSearch = useCallback(

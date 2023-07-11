@@ -3,5 +3,5 @@
     flex-wrap: wrap;
     gap: 36px;
     margin-bottom: 36px;
-    justify-content: center;
+    justify-content: space-between;
 }

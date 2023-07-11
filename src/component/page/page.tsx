@@ -23,6 +23,7 @@ const Page: React.FC<PageProps> = ({ movies, page, setPage, totalPage }) => {
           showSizeChanger={false}
           className="center"
           defaultPageSize={1}
+          hideOnSinglePage={true}
         />
       </div>
     </>
