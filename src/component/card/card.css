@@ -14,8 +14,16 @@
 
 .card_photo {
   grid-area: photo;
+  overflow: hidden;
   height: 279px;
-  max-width: 183px;
+  width: 183px;
+}
+
+.card_photo img {
+  position: relative;
+  height: 100%;
+  width: auto;
+  transform: translateX(-25%);
 }
 
 .card_title {
@@ -126,7 +134,7 @@
     height: 245px;
   }
   .card_photo {
-    width: 60px;
+    max-width: 60px;
     height: 91px;
   }
 

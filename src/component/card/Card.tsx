@@ -55,7 +55,9 @@ const Card: React.FC<CardProps> = ({ card }) => {
 
   return (
     <div className="card">
-      <img className="card_photo" src={photoPath} alt="" />
+      <div className="card_photo">
+        <img src={photoPath} alt="" />
+      </div>
       <div className="card_title">
         <h5>{cutDescription(card.title, 20)}</h5>
       </div>
