@@ -1,5 +1,5 @@
 # movies
 
-deploy: https://vercel.com/tsoielena/movies/7HjyCnqanwDRd5Vm7GoEK1VfLZmT
+deploy: https://vercel.com/tsoielena/movies/ECtCHJVoAW4V4gRGnL1Y91L6YcCj
 
-site: https://movies-tsoielena.vercel.app/
+site: https://movies-pi-self.vercel.app/
